@@ -1,10 +1,10 @@
 
-const contentPage = (req, res) => {
-    res.status(200).render("content.pug", {})
+const userPage = (req, res) => {
+    res.status(200).render("user", {})
 }
 
 const adminPage = (req, res) => {
-    res.status(200).render("admin.pug", {})
+    res.status(200).render("admin", {})
 }
 
-export default { contentPage, adminPage }
+export default { userPage, adminPage }

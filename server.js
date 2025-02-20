@@ -1,8 +1,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
-import authRouter from './routes/authRouter.js';
-import pageRouter from './routes/pageRouter.js';
+import router from './routes/router.js';
 
 const app = express();
 
@@ -22,12 +21,11 @@ app.use(session({
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
-app.set('views', './src/views');
+app.set('views', 'views');
 app.set('view engine', 'pug');
 
 //load routers
-app.use('/', authRouter);
-app.use('/', pageRouter);
+app.use('/', router);
 
 //error handling
 app.use((err, req, res, next) => {

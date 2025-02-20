@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import pageController from './../controllers/pageController.js';
-import authController from './../controllers/authController.js';
+import pageController from '../controllers/pageController.js';
+import authController from '../controllers/authController.js';
 
 const authRouter = Router();
 
 //access pages
 authRouter.get('/admin', pageController.adminPage);     //displays admin (restricted) content
-authRouter.get('/content', pageController.contentPage); //displays user content
+authRouter.get('/user', pageController.userPage);    //displays user content
 
 //register
 authRouter.get('/register', authController.registerPage);
