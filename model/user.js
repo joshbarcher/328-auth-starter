@@ -1,6 +1,5 @@
 import db from './../db/db.js';
 import { DataTypes } from 'sequelize';
-import bcrypt from 'bcrypt'
 
 const User = db.sequelize.define('user', {
     userId: {
@@ -29,6 +28,6 @@ const User = db.sequelize.define('user', {
 //add a function to validate passwords
 
 //make sure table is created
-User.sync({ alter: true });
+await User.sync({ alter: true });
 
 export default User;
