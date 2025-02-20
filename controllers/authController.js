@@ -41,8 +41,15 @@ const isLoggedIn = (req, res, next) => {
     next();
 }
 
-const hasRole = (req, res, next) => {
-
+const hasRole = (role) => {
+    return (req, res, next) => {
+        if (req.user.role === role) {
+            console.log(`${req.user.username} has role ${role}`);
+            return next();
+        }
+        console.log(`${req.user.username} missing role ${role}`);
+        res.redirect("/login");
+    }
 }
 
 export default { registerPage, register, loginPage, login, logout, isLoggedIn, hasRole }

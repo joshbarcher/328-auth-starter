@@ -5,7 +5,7 @@ import authController from '../controllers/authController.js';
 const authRouter = Router();
 
 //access pages
-authRouter.get('/admin', authController.isLoggedIn, pageController.adminPage);  //displays admin (restricted) content
+authRouter.get('/admin', authController.isLoggedIn, authController.hasRole("admin"), pageController.adminPage);  //displays admin (restricted) content
 authRouter.get('/user', authController.isLoggedIn, pageController.userPage);    //displays user content
 
 //register
