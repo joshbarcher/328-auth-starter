@@ -51,6 +51,6 @@ User.validatePassword = async (plainPassword, storedPassword) => {
 }
 
 //make sure table is created
-await User.sync({ force: true });
+await User.sync({ alter: true });
 
 export default User;

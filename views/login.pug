@@ -1,6 +1,10 @@
 extends layout
 
 block content
+    if error
+        .error 
+            p= error
+
     .login-container
         h1 Login
         if errors 
