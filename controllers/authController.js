@@ -1,11 +1,15 @@
 //register
-const registerPage = (req, res) => res.status(200).render("register.pug");
+const registerPage = (req, res) => res.status(200).render("register.pug", {
+    error: req.query.error
+});
 const register = (req, res) => {
     
 }
 
 //login
-const loginPage = (req, res) => res.status(200).render("login.pug");
+const loginPage = (req, res) => res.status(200).render("login.pug", {
+    error: req.query.error
+});
 const login = (req, res) => {
     
 }

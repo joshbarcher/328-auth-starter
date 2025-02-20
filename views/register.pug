@@ -1,6 +1,10 @@
 extends layout
 
 block content
+    if error
+        .error 
+            p= error
+
     .register-container
         h1 Register
         form(action="/register", method="POST")
