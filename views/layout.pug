@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{title}
+        link(rel="stylesheet", href="styles.css")
+    body
+        nav.navbar
+            .nav-container
+                a(href="/", class="navbar-brand") MyApp
+                ul.nav
+                    li.nav-item
+                        a(href="/login", class="nav-link") Login
+                    li.nav-item
+                        form(action="/logout" method="post")
+                            button(href="/logout", class="nav-link") Logout
+                    li.nav-item
+                        a(href="/register", class="nav-link") Register
+        main.container
+            block content
+        footer
+            p.text-center &copy; 2024 MyApp
