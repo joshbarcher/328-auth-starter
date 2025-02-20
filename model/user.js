@@ -2,7 +2,8 @@ import sequelize from './../db/db.js';
 import { DataTypes } from 'sequelize';
 import bcrypt from 'bcrypt';
 
-const User = sequelize.define('user', {
+const User = sequelize.define('user', 
+{
     userId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -46,8 +47,8 @@ async function hashPassword(user) {
 }
 
 //add a (static) function to validate passwords
-User.validatePassword = async (plainPassword, storedPassword) => {
-    return await bcrypt.compare(plainPassword, storedPassword);
+User.validatePassword = async (plainPass, storedPass) => {
+    return await bcrypt.compare(plainPass, storedPass);
 }
 
 //make sure table is created

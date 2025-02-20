@@ -4,7 +4,8 @@ import User from './../model/user.js';
 
 //serializing user into session data
 passport.serializeUser((user, done) => {
-    console.log(`Serialized ${user.username} to session with id #${user.userId}`);
+    console.log(`Serialized ${user.username} to 
+                 session with id #${user.userId}`);
     done(null, user.userId);
 })
 
@@ -29,10 +30,12 @@ passport.use(new LocalStrategy(async (username, password, done) => {
     if (!userFound) done(new Error("User not found"), null);
 
     //match password
-    const passwordMatch = await User.validatePassword(password, userFound.password);
+    const passwordMatch = await User.validatePassword(
+        password, userFound.password);
     if (!passwordMatch) done(new Error("Invalid password"), null);
 
     //success!
     console.log(`User matched - ${username}`);
     return done(null, userFound);
 }))
+
