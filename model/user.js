@@ -40,19 +40,17 @@ const User = sequelize.define('user', {
 //add a function to hash passwords
 async function hashPassword(user) {
     //the higher the number, the more secure
-    console.log("Generating salt")
     const salt = await bcrypt.genSalt(10); 
     console.log(`Salt used: ${salt}`);
-    user.password = bcrypt.hash(user.password, salt);
+    user.password = await bcrypt.hash(user.password, salt);
 }
 
-//add a function to validate passwords
+//add a (static) function to validate passwords
 User.validatePassword = async (plainPassword, storedPassword) => {
     return await bcrypt.compare(plainPassword, storedPassword);
 }
 
 //make sure table is created
-console.log("User schema synced");
 await User.sync({ force: true });
 
 export default User;

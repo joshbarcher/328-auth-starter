@@ -1,11 +1,18 @@
+import User from './../model/user.js';
+
 //register
-const registerPage = (req, res) => res.status(200).render("register.pug");
-const register = (req, res) => {
-    
+const registerPage = (req, res) => res.status(200).render("register");
+const register = async (req, res) => {
+    if (req.body.password === req.body.confirm) {
+        const user = await User.create(req.body);
+        console.log(`User created: ${user.username}`);
+        return res.redirect("/login");
+    }
+    res.render("register");
 }
 
 //login
-const loginPage = (req, res) => res.status(200).render("login.pug");
+const loginPage = (req, res) => res.status(200).render("login");
 const login = (req, res) => {
     
 }
