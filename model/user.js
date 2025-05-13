@@ -1,7 +1,7 @@
-import db from './../db/db.js';
+import sequelize from './../db/db.js';
 import { DataTypes } from 'sequelize';
 
-const User = db.sequelize.define('user', {
+const schema = sequelize.define('user', {
     userId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -24,6 +24,6 @@ const User = db.sequelize.define('user', {
 })
 
 //make sure table is created
-await User.sync({ alter: true });
+await schema.sync({ alter: true });
 
-export default User;
+export default schema;
