@@ -2,6 +2,7 @@
 const registerPage = (req, res) => res.status(200).render("register.pug", {
     error: req.query.error
 });
+
 const register = (req, res) => {
     
 }
@@ -10,6 +11,7 @@ const register = (req, res) => {
 const loginPage = (req, res) => res.status(200).render("login.pug", {
     error: req.query.error
 });
+
 const login = (req, res) => {
     
 }

@@ -1,6 +1,6 @@
 //import necessary packages
 
-//serializing user into session data
+//serialize user into session data
 
 //deserialize user from session data
 

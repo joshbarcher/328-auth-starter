@@ -23,10 +23,6 @@ const User = db.sequelize.define('user', {
     }
 })
 
-//add a function to hash passwords
-
-//add a function to validate passwords
-
 //make sure table is created
 await User.sync({ alter: true });
 

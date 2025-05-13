@@ -2,9 +2,7 @@ import dotenv from 'dotenv';
 import { Sequelize } from 'sequelize';
 import chalk from 'chalk';
 
-dotenv.config({
-    path: './db.env'
-});
+dotenv.config();
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_DATABASE, DB_PORT } = process.env;
 
