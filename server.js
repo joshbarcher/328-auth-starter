@@ -40,6 +40,6 @@ app.use((err, req, res, next) => {
 
 //start the server
 const port = process.env.PORT || 3000;
-app.listen(3000, () => {
-    console.log(`Server started on ${port}`);
+app.listen(port, () => {
+    console.log(`Server started on https://localhost:${port}`);
 });
